@@ -1,0 +1,158 @@
+:root {
+  --boardColor: rgb(26, 81, 182);
+  --player1Color: rgb(255, 68, 68);
+  --player2Color: rgb(235, 225, 90);
+  --boardWidth: min(96vh, 96vw);
+  --topFontSize: min(6vh, 6vw);
+  --topLineHeight: min(9.3vh, 9.3vw);
+  --gameFontSize: min(10.34vh, 10.34vw);
+  --infoFontSize: min(10vh, 10vw);
+  --msqFontSize: min(20vh, 20vw);
+  --borderRadius: min(2vh, 2vw);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+#board {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: var(--boardWidth);
+  width: var(--boardWidth);
+  font-size: var(--gameFontSize);
+}
+
+.board-message-container {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.705);
+  height: 100vh;
+  width: 100vw;
+}
+
+.board-message {
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: var(--msqFontSize);
+  font-weight: bold;
+  text-shadow: 2px 2px 8px black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  cursor: pointer;
+}
+
+.board-container {
+  display: grid;
+  grid-template-rows: 2fr 10fr 1fr 60fr 2fr;
+  width: 100%;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+  background-color: var(--boardColor);
+  border-radius: var(--borderRadius);
+}
+
+.board-title-area {
+  display: grid;
+  grid-template-columns: 3fr 10fr 60fr 3fr;
+}
+
+#board-info {
+  font-size: var(--infoFontSize);
+  font-weight: bold;
+  color: white;
+  text-shadow: 0px 0px calc(var(--infoFontSize) / 10) rgba(0, 0, 0, 0.94);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.board-game-area {
+  display: grid;
+  grid-template-columns: 2fr repeat(7, 10fr) 2fr;
+}
+
+.board-column {
+  width: 100%;
+  height: 100%;
+}
+
+.board-column-container {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 15vw;
+}
+
+.board-column-container:hover {
+  cursor: pointer;
+  background-image: linear-gradient(
+    rgb(26, 81, 182),
+    rgb(0, 36, 104),
+    rgb(26, 81, 182)
+  );
+}
+
+.board-position {
+  height: 100%;
+  width: 100%;
+}
+
+.board-circle {
+  font-size: 6vw;
+  height: 86%;
+  width: 86%;
+  margin: 7%;
+  background-color: white;
+  border-radius: 200px;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px calc(var(--infoFontSize) / 6)
+    calc(var(--infoFontSize) / 4) inset;
+  box-sizing: border-box;
+}
+
+.top-circle {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  letter-spacing: -0.2vw;
+  font-size: var(--topFontSize);
+  line-height: var(--topLineHeight);
+  overflow: hidden;
+  background-color: rgb(107, 168, 107);
+  cursor: default;
+  box-shadow: rgba(0, 0, 0, 1) 0px calc(var(--infoFontSize) / 15)
+    calc(var(--infoFontSize) / 15);
+}
+
+.game-start {
+  font-size: 3vw;
+}
+
+.player1Color {
+  background-color: var(--player1Color);
+  box-shadow: rgba(0, 0, 0, 0.6) 0px calc(var(--infoFontSize) / 20)
+    calc(var(--infoFontSize) / 15) inset;
+}
+
+.player2Color {
+  background-color: var(--player2Color);
+  box-shadow: rgba(0, 0, 0, 0.6) 0px calc(var(--infoFontSize) / 15)
+    calc(var(--infoFontSize) / 10) inset;
+}
